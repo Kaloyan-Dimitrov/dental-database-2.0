@@ -1,17 +1,32 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+import bodyParser from 'body-parser';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
 // create a simple server
-const app = (0, express_1.default)();
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(cors());
 // listen to localhost
 app.listen(3000, () => {
     console.log('listening on port 3000');
 });
 // send a message to the client
-app.get('/', (req, res) => {
-    return res.send('Hello World!');
+app.get('/', (_req, res) => {
+    return res.send('Hello ww__world!');
 });
+app.post('/', (_req, res) => {
+    return res.send('Hello ww__world!');
+});
+// connect to mongodb server using mongoose
+try {
+    await mongoose.connect('mongodb://localhost/dental-database');
+    console.log('connected successfully to the database');
+}
+catch (err) {
+    console.error(err);
+}
+const name = 'adsfads';
 //# sourceMappingURL=index.js.map
