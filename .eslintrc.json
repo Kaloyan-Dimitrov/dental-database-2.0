@@ -31,6 +31,8 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-var": "error",
+        "@typescript-eslint/explicit-function-return-type": "error"
     }
 }
